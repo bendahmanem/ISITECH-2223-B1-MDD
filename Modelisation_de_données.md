@@ -123,3 +123,142 @@ On repond a la question : **Comment** les traitements sont-ils effectues ?
 #### Résumé: les 4 niveau de Merise
 
 ![Alt text](image-1.png)
+
+### Des donnees aux dependances fonctionnelles
+
+Pour etre integrees dans un systeme d'information, les donnees doivent etre triees et organisees. On va souvent tenter de les classer par type de donnees :
+
+- chaines de caracteres, format texte
+- type alphanumerique, format texte
+- le type numerique (integer, float...)
+- le type date (date, datetime, timestamp)
+- le logique ou booleen (true, false)
+
+Creation d'un dictionnaire de donnees
+
+![Alt text](image-2.png)
+
+![Alt text](image-3.png)
+
+### Les dependances fonctionnelles
+
+Une dependance fonctionnelle est une relation entre deux attributs d'une table. Elle permet de definir une relation de dependance entre deux attributs d'une table.
+
+Le role d'une dependance fonctionnelle est de permettre de definir une relation de dependance entre deux attributs d'une table: une donnee A depend fonctionnellement d'une donnee B lorsque la valeur de B determine la valeur de A.
+
+Pour formaliser une dependance fonctionnelle on utilise la notation suivante :
+`Numero adherent (Nom, prenom, code postal, ville, telephone, date d'adhesion, mail)`
+
+La partie gauche (numero adherent) est la `source` de la dependance fonctionnelle.
+La partie droite desgine le `but` de la dependance.
+
+#### Les dependances fonctionnelles composees
+
+Si une dependance fonctionnelle qui fait intervenir plus de deux attributs (source) on parle de dependance fonctionnelle composee.
+
+Exemple: Pour connaitre le temps d'un coureur sur une etape donnee il nous faut son numero ou son nom ainsi que le nom ou le numero de l'etape.
+
+Formalisation :
+`(numero coureur, numero etape)  (temps)`
+
+#### Les dependances fonctionnelles elementaires
+
+Une dependance fonctionnelle A -> B est elementaire s'il n'existe pas une donnee C, sous-ensemble de A, decrivant une dependance fonctionnelle type C -> B.
+
+Exemples :
+
+- RefProduit -> LibelleProduit
+- NumCommande RefProduit -> QuantiteCommandee
+- <strike>NumCommande RefProduit -> DesignationProduit</strike>
+
+#### Dependance fonctionnelle elementaire directe
+
+"On dit que la dépendance fonctionnelle A -> B est directe s’il n’existe aucun attribut C tel que l’on puisse avoir A -> C et C -> B. En d’autres termes, cela signifie que la dépendance fonctionnelle entre A et B ne peut pas être obtenue par transitivité."
+
+Exemple :
+
+- RefPromo -> NumApprenant
+- NumApprenant -> NomApprenant
+- RefPromo -> NomApprenant : RefPromo -> NumApprenant -> NomApprenant
+
+#### Sujet TP/TD MCD jour 1
+
+![Alt text](image-14.png)
+![Alt text](image-5.png)
+![Alt text](image-6.png)
+![Alt text](image-7.png)
+
+Le but de l'exercie est d'elaborer un MCD a partir d'un dictionnaire de donnees.
+
+Ici on va introduire les notions d'entite, de relations et de propriétés.
+
+##### Les proprietes sont les informations de bases d'un SI.
+
+##### Les entités sont les objets du SI.
+
+![Alt text](image-8.png)
+
+Quelques definitions:
+
+    - entite forte: une entite qui ne depend pas d'une autre entite pour exister
+    - entite faible: une entite qui depend d'une autre entite pour exister
+
+##### Les relations
+
+![Alt text](image-9.png)
+
+**Les cardinalités**: elles permettent de définir le nombre d'occurences d'une entité par rapport à une autre entité dans le cadre d'une relation.
+
+![Alt text](image-10.png)
+
+Petit Exemple :
+
+![Alt text](image-11.png)
+
+![Alt text](image-12.png)
+
+![Alt text](image-13.png)
+
+##### Les relations "porteuses"
+
+Une relation est dite porteuse si elle possede des proprietes.
+
+![Alt text](image-15.png)
+
+![Alt text](image-16.png)
+
+##### Les relations reflexives
+
+Une relation est dite reflexive si elle relie une entite a elle meme.
+
+![Alt text](image-17.png)
+
+##### Quelques regles de conception :
+
+- toute entite doit avoir un identifiant
+- toutes les proprietes dependent fonctionnellement de l'identifiant
+- le nom d'une propriete ne doit apparaitre qu'une seule fois dans le MCD : si vous avez une entite Eleve et une entite Professeur, vous ne pouvez pas avoir une propriete nom dans les deux entites. Il faut donc renommer la propriete nom de l'entite Professeur en nomProfesseur par exemple.
+- les proprietes issues d'un calcul ne doivent pas apparaitre dans le MCD
+
+Installation d'AnalyseSI, pre requis java :
+
+Sur windows, creez la variable d'environnement systeme `JAVA_HOME` et mettez la valeur du chemin d'installation de java.
+
+```
+C:\Program Files\Java\jdk1.8.0_121
+```
+
+Modifier la variable d'environnement `PATH` et ajoutez `%JAVA_HOME%\bin`
+
+Pour tester le fonctionnement, ouvrez un terminal et tapez la commande `java -version`
+
+##### Les contraintes d'integrite fonctionnelle (CIF)
+
+Definition : Une CIF est definie par le fait qu'une des entites de l'association est completement determinee par la connaissance d'une ou de plusieurs entites participant a l'association.
+
+Exemple :
+
+![Alt text](image-18.png)
+
+Une Salle peut contenir 0 ou plusieurs Ordinateurs. Un ordinateur existe dans une et une seule salle.
+Dans ce type de relation une CIF existe si on a une cardinalite 1,1
