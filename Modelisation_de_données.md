@@ -317,4 +317,6 @@ Toute relation réflexive se transformera en entité et absorbera comme clé ét
 
 ##### Petit exercice pratique :
 
+A partir du MCD suivant construisez le MLD :
+
 ![Alt text](image-27.png)
