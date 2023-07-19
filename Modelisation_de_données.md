@@ -320,3 +320,7 @@ Toute relation réflexive se transformera en entité et absorbera comme clé ét
 A partir du MCD suivant construisez le MLD :
 
 ![Alt text](image-27.png)
+
+Voici le MLD :
+
+![Alt text](image-28.png)
