@@ -324,3 +324,45 @@ A partir du MCD suivant construisez le MLD :
 Voici le MLD :
 
 ![Alt text](image-28.png)
+
+### Modele physique des donnees (MPD)
+
+Voici le schema relationnel correspondant au MLD precedent :
+
+Diplômes (Diplomes)
+
+Possède (#NumEmployé, #Diplôme, Date d’obtention)
+
+Employés (NumEmployé, Nom, Prénom, Adresse, Code Postal, Ville, Téléphone)
+
+Tables (NumTable, Capacité)
+
+Date (Date)
+
+Service (TypeService, Désignation)
+
+Boissons Diverses (NumBoissons, Désignation, Prix de vente)
+
+Contenir (#NumCommande, #NumBoissons, Quantité)
+
+Commande (NumCommande, #Numemployé, #Date, #TypeService, #NumTable)
+
+Comprend (#NumMenu, #NumCommande, Quantité)
+
+Menus (NumMenu, Libellé, Prix de vente)
+
+Constitué (#NumMenu, #NumPlat)
+
+Constituer (#NumCommande, #NumPlat, Quantité)
+
+Sélectionner (#NumCommande, #NumVin, Quantité)
+
+Carte des vins (NumVin, Nom du vin, Millesime, Prix de vente)
+
+Carte des plats (NumPlat, LibelléPlat, Prix de vente, #NumType)
+
+Type des plats (NumType, Désignation)
+
+Bouteilles (NumBouteille, Date Achat, Prix d’achat, # NumVin, #NumViticulteur)
+
+Viticulteur (NumViticulteur, Nom viticulteur, Prénom viticulteur, Adresse viticulteur, Code postal, Ville, Téléphone)
