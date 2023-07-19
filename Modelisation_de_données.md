@@ -140,7 +140,7 @@ Creation d'un dictionnaire de donnees
 
 ![Alt text](image-3.png)
 
-### Les dependances fonctionnelles
+##### Les dependances fonctionnelles
 
 Une dependance fonctionnelle est une relation entre deux attributs d'une table. Elle permet de definir une relation de dependance entre deux attributs d'une table.
 
@@ -152,7 +152,7 @@ Pour formaliser une dependance fonctionnelle on utilise la notation suivante :
 La partie gauche (numero adherent) est la `source` de la dependance fonctionnelle.
 La partie droite desgine le `but` de la dependance.
 
-#### Les dependances fonctionnelles composees
+##### Les dependances fonctionnelles composees
 
 Si une dependance fonctionnelle qui fait intervenir plus de deux attributs (source) on parle de dependance fonctionnelle composee.
 
@@ -161,7 +161,7 @@ Exemple: Pour connaitre le temps d'un coureur sur une etape donnee il nous faut 
 Formalisation :
 `(numero coureur, numero etape)  (temps)`
 
-#### Les dependances fonctionnelles elementaires
+##### Les dependances fonctionnelles elementaires
 
 Une dependance fonctionnelle A -> B est elementaire s'il n'existe pas une donnee C, sous-ensemble de A, decrivant une dependance fonctionnelle type C -> B.
 
@@ -171,7 +171,7 @@ Exemples :
 - NumCommande RefProduit -> QuantiteCommandee
 - <strike>NumCommande RefProduit -> DesignationProduit</strike>
 
-#### Dependance fonctionnelle elementaire directe
+##### Dependance fonctionnelle elementaire directe
 
 "On dit que la dépendance fonctionnelle A -> B est directe s’il n’existe aucun attribut C tel que l’on puisse avoir A -> C et C -> B. En d’autres termes, cela signifie que la dépendance fonctionnelle entre A et B ne peut pas être obtenue par transitivité."
 
@@ -181,7 +181,7 @@ Exemple :
 - NumApprenant -> NomApprenant
 - RefPromo -> NomApprenant : RefPromo -> NumApprenant -> NomApprenant
 
-#### Sujet TP/TD MCD jour 1
+##### Sujet TP/TD MCD jour 1
 
 ![Alt text](image-14.png)
 ![Alt text](image-5.png)
@@ -262,3 +262,59 @@ Exemple :
 
 Une Salle peut contenir 0 ou plusieurs Ordinateurs. Un ordinateur existe dans une et une seule salle.
 Dans ce type de relation une CIF existe si on a une cardinalite 1,1
+
+### Modele Logique des donnees (MLD)
+
+Le MLD est la suite du processus Merise, on se rapproche un peu plus de la base de donnees.
+
+#### Cas simple:
+Partons du MCD suivant :
+
+![Alt text](image-19.png)
+
+Nous arrivons au MLD suivant :
+
+![Alt text](image-20.png)
+
+L'`entite` qui possede la cardinalite 1,1 ou 0,1 absorbe l'identifiant de l'entite la plus forte (0,n ou 1,n). Cet identifiant devient alors une cle etrangere.
+
+#### Cas (0,n), (0,n) ou (1,n), (1,n)
+
+Partons du MCD suivant :
+
+![Alt text](image-21.png)
+
+Dans le cas ou la `cardinalite max` est n des deux cotes, on cree une entite intermediaire qui va contenir les deux cles etrangeres des deux entites.
+
+![Alt text](image-22.png)
+
+Continuons avec le MCD suivant :
+
+![Alt text](image-23.png)
+
+On obtient le MLD suivant en suivant la meme logique:
+
+![Alt text](image-24.png)
+
+#### Cas d'une relation reflexive
+
+Partons du MCD suivant :
+
+![Alt text](image-25.png)
+
+![Alt text](image-26.png)
+
+#### Regles de passage du MCD au MLD
+
+Règles simples de passage du MCD au MLD
+L’entité qui possède la cardinalité maximale égale à 1 recevra l’identifiant ou les identifiants des entités ayant les cardinalités maximales les plus fortes.
+
+Les relations ayant toutes leurs entités reliées avec des cardinalités maximales supérieures à 1 se transformeront en entité en absorbant les identifiants des entités jointes.
+
+Toute relation porteuse de propriétés se transformera en entité et absorbera comme clé étrangère les identifiants des entités qui lui sont liées.
+
+Toute relation réflexive se transformera en entité et absorbera comme clé étrangère l’identifiant de l’entité qui lui est liée.
+
+##### Petit exercice pratique :
+
+![Alt text](image-27.png)
