@@ -325,7 +325,7 @@ Voici le MLD :
 
 ![Alt text](image-28.png)
 
-### Modele physique des donnees (MPD)
+### Modele physique des donnees (MPD)
 
 Voici le schema relationnel correspondant au MLD precedent :
 
@@ -406,3 +406,52 @@ CREATE TABLE VITICULTEUR
     PRIMARY KEY (NUMVITICULTEUR) CONSTRAINT PK_VITICULTEUR
    );
 ```
+
+## Les formes normales (FN)
+
+Ensemble de regles qui a pour but d'eviter les anomalies au sein des BDDR.
+Pour appliquer les concepts des formes normales il est necessaire de connaitre les trois premieres formes normales.
+
+### Forme normale 1 (1FN)
+
+Une relation est en premiere forme normale si :
+
+- tous les attributs sont atomiques
+- les attributs ne ocntiennent pas de valeurs repetitives
+
+Exemple:
+Clients (NumCli, Nom, Prenom, Adresse, Telephone)
+
+![Alt text](image-29.png)
+
+![Alt text](image-30.png)
+
+### Forme normale 2 (2FN)
+
+Une relation est en deuxieme forme normale si :
+
+- elle est en 1FN
+- si tous les attributs qui ne sont ps des cles ne dependent pas d'une partie de la cle primaire
+
+Exemple:
+
+Commande(NumClient, CodeArticle, Date, QteCommande, Designation)
+
+![Alt text](image-31.png)
+
+![Alt text](image-32.png)
+
+### Forme normale 3 (3FN)
+
+Une relation est en troisieme forme normale si :
+
+- Elle est en deuxieme forme normale
+- Si toutes les dependances fonctionnelles sont directes
+
+Les attributs non cle primaire ne dependent pas d'un attribut non cle primaire
+
+Exemple:
+
+Commande(NumCommande, #CodeClient, #RefArticle)
+
+![Alt text](image-34.png)
