@@ -475,3 +475,45 @@ Quelques regles a respecter :
 - un flux ne peut pas etre bidirectionnel
 - un flux ne doit pas etre reflexif
 - on ne represente pas les flux entre les acteurs externes
+
+## UML
+
+UML: Unified Modeling Language (langage de modélisation unifié) est un langage de modelisation de données. UML a ete normalisé en 1997 par l'OMG (Object Management Group). Son but est de mettre en forme les concepts orientés objets au travers de diagramme.
+
+UML propose 13 diagrammes dependants de facon hierarchique et se complétant.
+
+1. Les diagrammes statiques : ils permettent de modéliser la structure d'un système
+
+   - Diagramme de classe
+   - Diagramme d'objets
+   - Diagramme de composants
+   - Diagramme de déploiement
+   - Diagramme de paquetages
+   - Diagramme de structure composite
+
+2. Les diagrammes comportementaux:
+
+- Diagramme des cas d'usage
+- diagramme etats-transitions
+- diagramme d'activité
+
+3. Les diagrammes dynamiques:
+
+- Diagramme de sequences
+- Diagramme de communication
+- Diagramme global d'interaction
+- Diagramme de temps
+
+### Analogie Merise / UML
+
+1. Cas du MCD et du diagramme des classes
+
+Le MCD et le diagramme de classes partagent beaucoup de points communs. Les différences majeures apparaissent dans le côté objet d’UML. Cependant, au niveau du processus d’analyse, le diagramme de classes se rapproche plus du modèle logique des données. Le langage UML pour représenter une base de données ne passe pas d’un état correspondant à un MCD à un MLD. Il faut donc à l’analyste une bonne approche ou vision de la base de données pour la représenter sans faille en langage UML. Le découpage MCD, MLD apporte plus de sécurité, à ce niveau-là, qu’UML.
+
+![Alt text](image-36.png)
+
+![Alt text](image-37.png)
+
+Representation d'une relation
+
+![Alt text](image-38.png)
