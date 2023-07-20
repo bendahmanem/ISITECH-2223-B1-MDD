@@ -455,3 +455,23 @@ Exemple:
 Commande(NumCommande, #CodeClient, #RefArticle)
 
 ![Alt text](image-34.png)
+
+### Les diagrammes des flux
+
+Les diagrammes des flux permettent de modéliser les flux d'informations entre les acteurs du systeme d'information et les acteurs du systeme operant.
+
+Quelques definitions:
+
+- Domaine d'etude: le perimetre d'une activite au sein d'une entreprise, d'une activite specifique
+- L'acteur: une personne, un service, une entreprise, un systeme informatique qui intervient dans le domaine d'etude au moyen d'un flux d'information
+- les flux: les informations qui circulent entre les acteurs, represente par une fleche et porte un nom et peut etre numerote (par soucis de chronologie)
+
+Representation graphique :
+
+![Alt text](image-35.png)
+
+Quelques regles a respecter :
+
+- un flux ne peut pas etre bidirectionnel
+- un flux ne doit pas etre reflexif
+- on ne represente pas les flux entre les acteurs externes
